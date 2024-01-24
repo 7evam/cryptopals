@@ -278,3 +278,13 @@ print(repeating_key_xor(cipher_6, bytes(chal6_key, 'utf-8')))
 # once cipher dict is complete, run xor_decrypt on all of them
 # combine the most likely letter (2th element in tuple) into a key and there is key
 # crack cipher with key
+
+################ challenge 7 ################
+chal_7_url = 'https://cryptopals.com/static/challenge-data/7.txt'
+chal7_response = requests.get(chal_7_url)
+raw_txt_7 = chal7_response.text
+cipher_7 = b64decode(raw_txt_7)
+key_7 = "YELLOW SUBMARINE"
+
+chal_7 = aes_ecb_dec(bytes(key_7, 'utf-8'), cipher_7)
+print(chal_7)
