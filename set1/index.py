@@ -71,7 +71,7 @@ def xor_decrypt(cipher):
     # print('cipher in xor decrypt', cipher)
     best_guess = (float('inf'), None, None)
     # go through all ascii codes that are letters
-    for char_code in range(0, 128):
+    for char_code in range(38, 128):
         try:
             # Repeat the bytes to match the length of the binary string
             char_expanded = bytes([char_code]) * len(cipher)
@@ -150,16 +150,15 @@ print(repeating_key_xor(chal5_bytes, chal5_key_bytes).hex())
 # run xor with found key, convert to ascii
 
 def hamming_distance_binary(str1, str2):
-    # Check if the binary strings have equal length
+    # check if the binary strings have equal length
     if len(str1) != len(str2):
         return 'uneven'
         # raise ValueError("Binary strings must be of equal length for Hamming distance calculation")
 
-    # Calculate Hamming distance on the bit level
     distance = sum(bit1 != bit2 for bit1, bit2 in zip(str1, str2))
     return distance
 
-def hamming_dist(str1, str2):
+def hamming_dist_test(str1, str2):
     # check if the strings have equal length
     if len(str1) != len(str2):
         return 'uneven'
@@ -171,7 +170,7 @@ def hamming_dist(str1, str2):
 test1 = 'this is a test'
 test2 = 'wokka wokka!!!'
 
-# print('ham test', hamming_dist(test1, test2))
+# print('ham test', hamming_dist_test(test1, test2))
 
 chal6_cipher_url = "https://cryptopals.com/static/challenge-data/6.txt"
 chal6_response = requests.get(chal6_cipher_url)
