@@ -1,6 +1,7 @@
 from base64 import b16decode, b64encode, b64decode, b16encode
 import requests
 import string
+from Crypto.Cipher import AES
 
 ################# challenge 1 ################
 def convert_binary_to_base64(binary):
