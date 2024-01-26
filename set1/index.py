@@ -287,5 +287,10 @@ raw_txt_7 = chal7_response.text
 cipher_7 = b64decode(raw_txt_7)
 key_7 = "YELLOW SUBMARINE"
 
+def aes_ecb_dec(key: bytes, cipher: bytes):
+    cipher_obj = AES.new(key, AES.MODE_ECB)
+    decrypted_data = cipher_obj.decrypt(cipher)
+    return decrypted_data
+
 chal_7 = aes_ecb_dec(bytes(key_7, 'utf-8'), cipher_7)
 print(chal_7)
